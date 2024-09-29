@@ -17,3 +17,18 @@ To address these issues, this project leverages async IO to handle multiple clie
 - Efficient Resource Utilization: Utilized an event loop to manage I/O operations efficiently, reducing resource consumption and improving scalability.
 - Reduced Message Loss: By handling multiple connections concurrently and efficiently, the server is less likely to experience message loss due to delays or blocking.
 - Simplified Concurrency: Used async IO to achieve concurrency without the complexity and overhead of threading, making the server more robust and easier to maintain.
+
+
+## Result 
+For testing the result with async io, I utilized locust library to measure the concurrency, request failures and reponse time of both servers. For more detailed reports, the files are located under report folders. 
+
+With the baseline server, there is significant message loss. Out of 11,717 requests, 3,197 requests fail, resulting in a failure rate of 27%. The response time is also relatively higher, indicating potential bottlenecks that reduce overall server efficiency.
+
+![Report of Baseline Server (Number of Requests)]("/image/report_base.png")
+![Report of Baseline Server (Number of Response)]("/image/response_time_base.png")
+
+
+On the other hand, with the optimized server using Async IO, there is a notable improvement. Out of 34,140 requests, only 6,119 requests fail, reducing the failure rate to 18%. This marks a substantial decrease in failure percentage, showing that the optimized server is capable of handling higher loads with fewer dropped requests. Additionally, the optimized server shows lower response times across different percentiles, which translates to a smoother and more efficient user experience. The increased requests per second and reduced latency indicate that the optimization effectively mitigated the bottlenecks seen in the baseline server.
+
+![Report of Optimized Server with Async IO (Number of Requests)]("/image/report_io.png")
+![Report of Optimized Server with Async IO (Number of Response)]("/image/response_time_io.png")
