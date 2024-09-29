@@ -1,0 +1,2 @@
+Mean Latency: 2.5991558145326654 ms
+Mean Latency Optimized: 2.651817916730128 ms

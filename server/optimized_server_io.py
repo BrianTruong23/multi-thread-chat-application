@@ -31,7 +31,7 @@ async def handle_client(reader, writer):
             latency = (end_time - start_time) * 1000  # Convert to milliseconds
             print(f"Latency for {addr}: {latency} ms")
             # Append latency value with a newline
-            with open('latency_io.txt', "a") as f:
+            with open('../latency_script/latency_io.txt', "a") as f:
                 f.write(f"{latency}\n")
     except Exception as e:
         print(f"Error: {e}")

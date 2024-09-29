@@ -20,6 +20,8 @@ To address these issues, this project leverages async IO to handle multiple clie
 
 
 ## Result 
+To measure latency, I used Python's time module to calculate the difference between when the server received the client's message request and when it sent the response status code back. I then took the average of these latency measurements to determine the expected response time for the server. For the baseline server, the average latency for handling 250 users was 2.599. In the optimized server architecture, the average latency for handling 250 users was 2.651. The difference in latency between the two servers is minimal. (The latency values are in /testing/latency_report.txt)
+
 For testing the result with async io, I utilized locust library to measure the concurrency, request failures and reponse time of both servers. For more detailed reports, the files are located under report folders. 
 
 With the baseline server, there is significant message loss. Out of 11,717 requests, 3,197 requests fail, resulting in a failure rate of 27%. The response time is also relatively higher, indicating potential bottlenecks that reduce overall server efficiency.
